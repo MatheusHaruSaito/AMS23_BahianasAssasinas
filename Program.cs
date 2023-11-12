@@ -1,7 +1,14 @@
+using AMS23_Carousel.Data.Repository;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+    builder.Services.AddDbContext<ApplicationDataContext>
+    (option => option.UseSqlite(builder.Configuration.GetConnectionString("DefaultContext")));
+    builder.Services.
 
 var app = builder.Build();
 
